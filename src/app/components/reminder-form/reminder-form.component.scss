@@ -1,0 +1,15 @@
+.row {
+    display: block;
+    margin: .2rem 0;
+
+    &.time {
+        margin-top: 1rem;
+    }
+}
+
+.reminder-form {
+    &__controls {
+        margin: .3rem 0;
+        text-align: right;
+    }
+}

@@ -1,0 +1,16 @@
+<ul>
+  <li *ngFor="let reminder of reminders" class="reminder">
+    <button
+      mat-stroked-button
+      class="text fullwidth"
+      (click)="onReminderClick(reminder)"
+      [tabindex]="-1"
+    >
+      
+    {{ (reminder.text.length > 15)
+      ? (reminder.text | slice:0:15) + '...'
+      : (reminder.text)
+  }}
+    </button>
+  </li>
+</ul>

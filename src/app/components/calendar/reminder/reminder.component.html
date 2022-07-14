@@ -1,0 +1,22 @@
+<div class="reminder-list">
+  <ul *ngIf="items.length < 3">
+    <li
+      *ngFor="let item of items"
+      class="reminder"
+    >
+      <button
+        mat-stroked-button
+        class="reminder__text"
+        (click)="openRemainderDetails(item)"
+      >
+        {{ (item.text.length > 15)
+            ? (item.text | slice:0:15) + '...'
+            : (item.text)
+        }}
+      </button>
+    </li>
+  </ul>
+  <div *ngIf="reminders.length >=3">
+    <span class="see-more" (click)="seeAllReminders()">{{reminders.length -1 }} more ...</span>
+  </div>
+</div>

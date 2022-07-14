@@ -1,0 +1,35 @@
+@import "../../../../styles/base/variables.scss";
+
+.edit, .delete {
+  margin-bottom: 1rem;
+  color: $color-hard-grey;
+  cursor: pointer;
+}
+
+.reminder-details {
+  position: relative;
+
+  .title {
+    margin-bottom: 0;
+  }
+  .date {
+    color: $color-soft-grey;
+    font-size: .7rem;
+  }
+  .city {
+    margin-top: .6rem;
+    font-size: .8rem;
+    
+    h3 {
+      display: inline;
+      font-size: 1.2rem;
+      color: $color-soft-grey;
+      text-transform: capitalize;
+    }
+  }
+  .weather-info {
+    .icon {
+      vertical-align: middle;
+    }
+  }
+}

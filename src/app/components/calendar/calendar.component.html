@@ -1,0 +1,45 @@
+<mat-toolbar>
+  <button mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Jobsity challenge</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="openReminderForm()">
+    <mat-icon>add</mat-icon> New reminder
+ </button>
+</mat-toolbar>
+
+<!-- Create the calendar here -->
+<div *ngIf="loading" class="loading-indicator">
+  <mat-progress-spinner
+    [diameter]="100"
+    mode="indeterminate"
+  >
+  </mat-progress-spinner>
+</div>
+<div class="calendar">
+  <div class="calendar__control">
+    <button (click)="setMonth(-1)">&lt;</button>
+    {{date | date}}
+    <button (click)="setMonth(+1)">&gt;</button>
+  </div>
+  <div class="calendar__view">
+    <ul>
+      <li class="days" *ngFor="let day of days">{{day}}</li>
+      <li
+        *ngFor="let data of calendarData"
+        [ngClass]="{
+          currentMonth: isCurrentMonth(data.date),
+          isWeekendDay: isWeekendDay(data.date)
+        }"
+        class="date"
+      >
+        <span class="number">{{data.date | date: 'd' }}</span>
+        <div class="reminder-list">
+          <app-reminder [reminders]="data.reminders"></app-reminder>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ======================== -->

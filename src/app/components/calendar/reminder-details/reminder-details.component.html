@@ -1,0 +1,32 @@
+<mat-dialog-actions align="end">
+  <mat-icon class="material-icons edit" (click)="onEditClick(reminder)">
+    edit
+  </mat-icon>
+  <mat-icon class="material-icons delete" (click)="onDeleteClick(reminder)">
+    delete
+  </mat-icon>
+</mat-dialog-actions>
+<mat-dialog-content class="reminder-details">
+  <h2 class="title">{{reminder.text}}</h2>
+  <div class="date">
+    {{reminder.date | date: 'EEEE, MMMM d' }} 
+    {{
+      reminder.time
+        ? 'at ' + reminder.time.hours + ':' + reminder.time.minutes
+        : ''
+    }}
+  </div>
+  <div class="city">in the city of <h3>{{reminder.city}}</h3></div>
+  <span class="weather-info" *ngIf="weather">
+    <img 
+      class="icon"
+      [alt]="weather.description"
+      [src]="weather.icon"
+    >
+    <span class="weather-main"></span>({{ weather.description }})
+  </span>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button mat-dialog-close tabindex="-1">close</button>
+</mat-dialog-actions>
